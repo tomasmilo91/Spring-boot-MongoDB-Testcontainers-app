@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController  //return list of objects
+@RestController
 @RequestMapping(value = "/persons")
 public class PersonController {
 
@@ -21,41 +21,35 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-
     @GetMapping(value = "/all")
     public List<Person> getAll() {
         LOG.info("Getall user data");
         return personRepository.findAll();
-
     }
 
     @PutMapping("/insert")
-    public void insert(@RequestBody Person person){
+    public void insert(@RequestBody Person person) {
         LOG.info("Insert user data");
         personRepository.insert(person);
     }
 
     @PostMapping("/update")
-    public void update(@RequestBody Person person){
+    public void update(@RequestBody Person person) {
         LOG.info("Update user data");
         personRepository.save(person);
     }
 
     @DeleteMapping("delete/{id}")
-    public void delete(@PathVariable("id") String id){
+    public void delete(@PathVariable("id") String id) {
         LOG.info("Delete user data");
         personRepository.deleteById(id);
     }
 
     @GetMapping("address/{city}")
-    public List<Person> getByCity(@PathVariable("city") String city){
-        List<Person> person= personRepository.findAllByCity(city);
+    public List<Person> getByCity(@PathVariable("city") String city) {
+        List<Person> person = personRepository.findAllByCity(city);
         return person;
-
     }
-
-
-
 }
 
 

@@ -5,8 +5,6 @@ import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
-
 @Document(collection = "Person")
 public class Person {
 
@@ -16,7 +14,6 @@ public class Person {
     private Integer age;
     private String telephone;
     private String email;
-
 
     @Indexed(direction = IndexDirection.ASCENDING)
     private int salary;
@@ -45,7 +42,7 @@ public class Person {
         this.telephone = telephone;
         this.email = email;
         this.salary = salary;
-        this.address =address;
+        this.address = address;
     }
 
     public Person() {
